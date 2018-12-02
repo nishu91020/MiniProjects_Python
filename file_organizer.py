@@ -27,19 +27,18 @@ def orga(args):
             songs.append(i)
         elif i[-3:] in ["mp4","mkv","mov","vlc"]:
             videos.append(i)
-        elif i[-4:] in ["pptx","docx"] or i[-3:] in ["pdf","txt"]:
+        elif i[-4:] in ["pptx","docx","xlsx"] or i[-3:] in ["pdf","txt","doc","PDF"]:
             documents.append(i)
         elif i[-3:]=="exe":
             executables.append(i)
         elif i[-3:] in ["jpg","bmp","gif","png"] or i[-4:]=="jpeg":
             pictures.append(i)
-        elif i[-3:] in ["ini","iso"] or i[-7:]=="torrent":
+        elif i[-3:] in ["ini","iso","srt"] or i[-7:]=="torrent" or i[-4:] in ["html","webp"]:
             misc.append(i)
         else:
-            if not (fileName[-7:]=="folders"):
-                folders.append(i)
+            folders.append(i)
 
-    if not os.path.exists(fileName + "folders\\") and not (fileName[-7:]=="folders"):
+    if not os.path.exists(fileName + "folders\\"):
         os.makedirs(fileName + "folders\\")
     for i in folders:
         os.rename(fileName + i, fileName + "folders\\" + i)
