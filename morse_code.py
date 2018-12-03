@@ -1,9 +1,10 @@
 # Program to convert morse code to both dots
 #and dashes form as well as sound
 import winsound
+import time
 
-#frequency = 2500  # Set Frequency To 2500 Hertz
-#duration = 1000  # Set Duration To 1000 ms == 1 second
+frequency = 250  # Set Frequency To 2500 Hertz
+duration = 500  # Set Duration To 1000 ms == 1 second
 #winsound.Beep(frequency, duration)
 
 #To be completed
@@ -32,9 +33,21 @@ def morse_encoder(text):
 
     return ''.join(converted)
 
+def morse_to_beep(morsecode):
+    for i in morsecode:
+        if i=='.':
+            winsound.Beep(frequency,duration)
+        elif i=='-':
+            winsound.Beep(frequency,duration*2)
+        elif i==' ':
+            time.sleep(0.5)
+
+#To be implemented
+def morse_decoder(morsee):
+    pass
+
 print("Enter the text to be converted to morse code :- ")
 plaintext = input()
 morsetext = morse_encoder(plaintext)
 print(morsetext)
-print(morse)
-print(morse_dec)
+morse_to_beep(morsetext)
