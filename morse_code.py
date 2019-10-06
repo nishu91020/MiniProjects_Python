@@ -44,10 +44,17 @@ def morse_to_beep(morsecode):
 
 #To be implemented
 def morse_decoder(morsee):
-    pass
-
+    ls=morsee.split(' ')
+    for i in ls:
+        if i == " ":
+            continue
+        print(morse_dec[i])
 print("Enter the text to be converted to morse code :- ")
 plaintext = input()
 morsetext = morse_encoder(plaintext)
 print(morsetext)
 morse_to_beep(morsetext)
+print("morse code converted to text")
+morsetext=input()
+morse_decoder(morsetext)
+
